@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css?family=Tajawal&display=swap');
+
+.hotel {
+    width: 200px;
+    height: 200px;
+    border-radius: 5%;
+    overflow: hidden;
+    background-color: white;
+    margin: 15px;
+  
+    img {
+      height: 70%;
+      width: 100%;
+    }
+  
+    &__info {
+      padding: 5px;
+      text-align: center;
+  
+      .hotel-name {
+        font-family: 'Tajawal', sans-serif;
+        font-size: 1.1rem;    
+      }
+    }
+  }
+  
+  .main-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+  }

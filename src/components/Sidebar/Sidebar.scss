@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css?family=Tajawal&display=swap');
+
+.title {
+  margin-top: 50px;
+  text-align: center;
+  font-family: 'Tajawal', sans-serif;
+  font-size: 30px;
+  font-weight: bolder;
+  align-content: flex-start;
+}
+
+.hotel_container {
+  display: flex;
+  flex: 0 0 20em;
+  height: 100px;
+  margin-left: 60px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  background-color: #dedede;
+  
+    img {
+      width: 30%;
+      height: 75px;
+      margin-top: 10px;
+      border-radius: 10%;
+      overflow: hidden;
+    }
+  
+    &__info_container {
+      width: 50%;
+      margin-left: 10px;
+      padding-top: 5px;
+      line-height: 1;
+      font-size: 15px;
+      font-weight: bold;
+      font-family: 'Tajawal', sans-serif;
+  
+    .hotel_title {
+      margin-top: 5px;
+      margin-bottom: 0.5em;
+      font-size: 1rem;
+      }
+    }
+  }
+  
+.sidebar {
+  flex: 0 0 25em;
+  }
+
+.location {
+  margin-top: 0em;
+  margin-bottom: 0em;
+  font-weight: normal;
+}
+
+.price {
+  width: 40px;
+  margin-top: 1em;
+  margin-bottom: 0.1em;
+  padding: 5px 2px 5px 2px;
+  border-radius: 50px;
+  text-align: center;
+  background-color: #66c2ff;
+  font-weight: bolder;
+  font-size: 12px;
+  color: whitesmoke;  
+}
+
+.price:hover {
+  background-color: #0099ff;
+}
+
+.more {
+text-align: center;
+color: #9494b8;
+font-size: 40px;
+}
+
+.more:hover {
+  color: #f0f0f5;
+}
