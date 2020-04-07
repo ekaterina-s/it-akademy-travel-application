@@ -30,7 +30,6 @@ class App extends React.Component {
       return hotel.price >= parseInt(price);
     })
     this.setState({
-
       hotels: price.length > 0 ? filteredHotels : data
     });
   }
@@ -75,12 +74,10 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        {/* <div className="Body"> */}
           <Header filterHotels={this.filterHotels} filterHotelsPrice={this.filterHotelsPrice} />
           <div className="MainSection">
             <Sidebar sidebar_data={this.state.recommendedHotels} />
             <MainContainer data={this.state.hotels} switchSort={this.switchSort} sort={this.state.sort} />
-          {/* </div> */}
         </div>
       </div>
     );

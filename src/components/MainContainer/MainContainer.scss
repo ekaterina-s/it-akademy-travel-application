@@ -3,30 +3,64 @@
 .hotel {
     width: 200px;
     height: 200px;
+    margin: 15px;
     border-radius: 5%;
     overflow: hidden;
     background-color: white;
-    margin: 15px;
   
     img {
-      height: 70%;
+      height: 65%;
       width: 100%;
     }
   
     &__info {
       padding: 5px;
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-content: space-between;
   
-      .hotel-name {
-        font-family: 'Tajawal', sans-serif;
-        font-size: 1.1rem;    
+    .hotel-name {
+      height: 10px;   
+      line-height: 1em;
+      font-family: 'Tajawal', sans-serif;
+      font-size: 1rem; 
+      font-weight: bolder;
+    }
+
+    .hotel-location-price {
+      height: 25px;
+      margin-top: 25px;
+      padding: 0 20px 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+    #font {
+      font-size: 0.9em;
+      }
+
+      .price-container {
+        width: 45px;
+        height: 25px;
+        padding: 0.4em 0 0.4em 0;
+        align-items: center;
+        text-align: center;
+        border-radius: 50px;
+        background-color: #d8ecf3;
+        font-size: 0.7em;
+        font-weight: bold;
+        color: darkcyan;      
       }
     }
+    
+    }
   }
+    .main-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px;
+    }
+
   
-  .main-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 20px;
-  }
