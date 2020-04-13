@@ -2,15 +2,17 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import React from 'react';
 import './Sidebar.scss';
 import sidebar_data from '../../utils/sidebar_data';
+import AddHotel from '../AddHotel/AddHotel';
 
 class Sidebar extends React.Component {
   render() {
     return (
       <div className="sidebar">
+      <AddHotel />
         <p className="title">More than just hotels</p>
-        {this.props.sidebar_data.map(element => {
+        {this.props.sidebar_data.map((element) => {
           return (
-            <div className="hotel_container">
+            <div className="hotel_container" > 
               <img src={element.image} />
               <div className="hotel_container__info_container">
                 <p className="hotel_title">{element.title}</p>

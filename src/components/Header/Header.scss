@@ -24,16 +24,41 @@ img {
     border-color: #cccccc;
 }
 
-.price-bar {
-    height: 40px;
-    width: 150px;
+.price-currency-change {
+    display: flex;
+    align-items: center;
     margin-bottom: 50px;
+}
+
+.price-bar-currency {
+    margin-right: 20px;
+    height: 40px;
+    width: 80px;
     padding: 2px 5px 7px 5px;
     display: flex;
     align-items: flex-end;
     border: solid #e6e6e6 2px;
     border-radius: 50px;
-    
+}
+
+.price-bar-currency:focus {
+    outline: none;
+    outline-style: initial;
+}
+.price-bar-currency:hover {
+    border-color: #cccccc;
+}
+
+.price-bar {
+    margin-right: 20px;
+    height: 40px;
+    width: 150px;
+    padding: 2px 5px 7px 5px;
+    display: flex;
+    align-items: flex-end;
+    border: solid #e6e6e6 2px;
+    border-radius: 50px;
+
 .search-field-price {
     width: 100px;
     margin: 0 0 0 6px;
