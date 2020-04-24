@@ -1,0 +1,52 @@
+.add-container {
+    margin: 0 0 20px 60px;
+    padding: 20px;
+    width: 300px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+
+.price-one-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-control {
+    border: 2px solid #cccccc;  
+}
+
+.form-control:hover {
+    border: 2px solid #a6a6a6;  
+}
+
+.form-control:focus {
+    outline: none;  
+}
+
+.buttons{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.add-hotel-button, .closebutton{
+    margin-top: 20px;
+    text-align: center;
+    width: 100px;
+    height: 30px;
+    border: 2px solid #4db8ff; 
+    border-radius: 5px;
+    background-color: #4db8ff;  
+    color: whitesmoke;
+}
+
+.add-hotel-button:hover, .closebutton:hover {
+    border: 2px solid #0099ff; 
+    background-color: #0099ff;  
+}
+
+.add-hotel-button:focus, .closebutton:focus {
+    outline: none;  
+}
+

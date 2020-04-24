@@ -45,37 +45,61 @@
   
     .sidebar {
       flex: 0 0 25em;
+
+    .button-div {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      }
     }
 
     .location {
-    margin-top: 0em;
-    margin-bottom: 0em;
-    font-weight: normal;
+      margin-top: 0em;
+      margin-bottom: 0em;
+      font-weight: normal;
     }
 
     .price {
-    width: 40px;
-    margin-top: 1em;
-    margin-bottom: 0.1em;
-    padding: 5px 2px 5px 2px;
-    border-radius: 50px;
-    text-align: center;
-    background-color: #66c2ff;
-    font-weight: bolder;
-    font-size: 12px;
-    color: whitesmoke;  
+      width: 40px;
+      margin-top: 1em;
+      margin-bottom: 0.1em;
+      padding: 5px 2px 5px 2px;
+      border-radius: 50px;
+      text-align: center;
+      background-color: #66c2ff;
+      font-weight: bolder;
+      font-size: 12px;
+      color: whitesmoke;  
   }
 
     .price:hover {
-    background-color: #0099ff;
+      background-color: #0099ff;
   }
 
     .more {
-    text-align: center;
-    color: #9494b8;
-    font-size: 40px;
+      text-align: center;
+      color: #9494b8;
+      font-size: 40px;
   }
 
     .more:hover {
-    color: #f0f0f5;
+      color: #f0f0f5;
   }
+
+    .add-hotel-button {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      width: 100px;
+      text-align: center;
+      border: 2px solid #4db8ff; 
+      border-radius: 5px;
+      background-color: #4db8ff;  
+      color: whitesmoke;
+      font-weight: normal;
+  }
+
+    .closebutton:hover {
+      border: 2px solid #0099ff; 
+      background-color: #0099ff;  
+}
+ 
