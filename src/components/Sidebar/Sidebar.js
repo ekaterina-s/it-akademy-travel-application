@@ -3,6 +3,7 @@ import React from 'react';
 import './Sidebar.scss';
 import sidebar_data from '../../utils/sidebar_data';
 import Modal from '../Modal/Modal';
+import preloader from "../../icons/preloader.svg";
 
 class Sidebar extends React.Component {
 
@@ -18,6 +19,7 @@ class Sidebar extends React.Component {
 
   render() {
     return (
+      this.props.sidebar_data.length > 0 ?
       <div className="sidebar">
         <p className="title">More than just hotels</p>
         {this.props.sidebar_data.map((element) => {
@@ -48,6 +50,9 @@ class Sidebar extends React.Component {
           {this.toggleModal}>
         </Modal>
         }
+      </div>
+      : <div className="d-flex justify-content-center mx-auto align-items-start">
+      <img src={preloader}/>
       </div>
     );
   }

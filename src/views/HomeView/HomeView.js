@@ -13,7 +13,7 @@ class HomeView extends React.Component {
     recommendedHotels: [],
     sort: true,
     currency: 'USD',
-    dataFromApi: null,
+    dataFromApi: [],
     symbol: '$'
   };
 
@@ -87,8 +87,8 @@ class HomeView extends React.Component {
   componentDidMount() {
     axios.get('https://nodejs-mysql-it-academy.herokuapp.com/hotels').then((res) => {
       this.setState({
-        dataFromApi: res.data
-      })
+        dataFromApi: res.data,
+      });
     this.switchSort();
     });
 
