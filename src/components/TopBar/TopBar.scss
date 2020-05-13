@@ -1,0 +1,34 @@
+.topbar {
+    padding-left: 30px;
+    align-items: center;
+    align-content: center;
+    height: 100px;
+}
+
+.topbar-buttons {
+    margin-top: 15px;
+    margin-left: 25px;
+    display: flex;
+    height: inherit;
+}
+
+.logotype-img {
+    margin-top: 60px;
+}
+
+.home-img {
+   height: 25px;
+}
+
+.links {
+    color: #9494b8;
+    
+}
+
+.links:hover {
+    color: #8585ad;
+    border: solid #ffc266;
+    background-color: #ffc266;
+    border-radius: 30px;
+    height: 50px;
+}

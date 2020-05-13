@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import './RegisterView.scss';
 
 class RegisterView extends React.Component {
 
@@ -20,27 +21,45 @@ class RegisterView extends React.Component {
         }
 
         axios.post(url + 'register', form, options)
-        .then(response => {
-            console.log(response)
-        })
-        .catch(error => {
-            console.log(error)
-        })
+            .then(response => {
+                console.log(response)
+            })
+            .catch(error => {
+                console.log(error)
+            })
 
     }
 
     render() {
         return (
             <div className="container">
-                <h1>Register</h1>
+                <h3>Register</h3>
                 <form onSubmit={this.register}>
-                    <label>UserName:</label>
-                    <input type="text" name="username" required />
+                    <label>Login</label>
+                    <br />
+                    <input type="text" name="login" required />
+                    <br />
+                    <label>First name</label>
+                    <br />
+                    <input type="text" name="first name" required />
+                    <br />
+                    <label>Surname</label>
+                    <br />
+                    <input type="text" name="surname" required />
+                    <br />
                     <label>Email</label>
+                    <br />
                     <input type="email" name="email" required />
-                    <label>Password:</label>
+                    <br />
+                    <label>Password</label>
+                    <br />
                     <input type="password" name="password" required />
-                    <input type="submit" value="Register" />
+                    <br />
+                    <label>Repeat password</label>
+                    <br />
+                    <input type="password" name="password" required />
+                    <br />
+                    <input type="submit" value="Register" className="register-button" />
                 </form>
             </div>
         )

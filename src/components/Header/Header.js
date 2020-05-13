@@ -1,20 +1,26 @@
 import React from 'react';
 import './Header.scss';
 import search from '../../icons/search.svg';
+import { connect } from 'react-redux';
+import { saveText } from '../../store/actions/hotels-action';
 
 class Header extends React.Component {
 
     state = {};
     handleCurrency = event => {
         this.props.convertPrice(event.target.value);
-    }
+    };
     handleSearch = event => {
         this.props.filterHotels(event.target.value);
-    }
+    };
 
     handleFilterPrice = event => {
         this.props.filterHotelsPrice(event.target.value);
-    }
+    };
+
+    handleClick = () => {
+        this.props.dispatch(saveText('New text is here!'));
+    };
 
     render() {
         return (
@@ -42,10 +48,18 @@ class Header extends React.Component {
                         <option value="CHF">CHF</option>
                     </select>
                 </div>
+
+                <input type="button" value="click" onClick={this.handleClick} />
+                {this.props.savedText}
             </div>
         );
     }
 
 }
+const mapStateToProps = (state) => {
+    return {
+        savedText: state.text,
+    };
+};
 
-export default Header;
+export default connect(mapStateToProps)(Header);

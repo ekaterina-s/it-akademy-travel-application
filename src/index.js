@@ -4,11 +4,15 @@ import { Lines } from 'react-preloaders';
 import ReactDOM from 'react-dom';
 import './index.scss';
 import App from './App';
+import { Provider } from 'react-redux';
+import store from './store';
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+  <Provider store ={store}>
+  <App />
+  </Provider>
     {/* <Lines /> */}
   </React.StrictMode>,
   document.getElementById('root')

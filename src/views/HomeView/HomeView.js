@@ -6,6 +6,8 @@ import sidebar_data from "../../utils/sidebar_data";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import rates from "../../utils/rates";
 import axios from 'axios';
+import { connect } from 'react-redux';
+import { saveHotels } from '../../store/actions/hotels-action';
 
 class HomeView extends React.Component {
   state = {
@@ -114,13 +116,13 @@ class HomeView extends React.Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="AppH">
         <Header
           filterHotels={this.filterHotels}
           filterHotelsPrice={this.filterHotelsPrice}
           convertPrice={this.convertPrice}
         />
-        <div className="MainSection">
+        <div className="MainSectionH">
           <Sidebar
             sidebar_data={this.state.recommendedHotels}
           />
@@ -136,4 +138,12 @@ class HomeView extends React.Component {
   }
 }
 
-export default HomeView;
+const mapStateToProps = (state) => ({
+hotels: state.hotels
+})
+
+const mapDispatchToProps = (dipatch) => ({
+  saveHotelsToRedux: (hotels) => dispatchEvent(saveHotels(hotels))
+})
+
+export default connect(mapStateToProps)(HomeView);

@@ -10,6 +10,7 @@ import TopBar from "./components/TopBar/TopBar";
 import axios from 'axios';
 import { url } from './utils/api';
 import PrivateRoute from './PrivateRoute';
+import ContactUsView from './views/ContactUsView/ContactUsView';
 
 class App extends React.Component {
   state = {
@@ -67,6 +68,7 @@ const token = localStorage.getItem('token');
             <Route path="/login" component={LoginView} />
             <Route path="/register" component={RegisterView} />
             <Route path="/hotel/:id" component={AddHotelView} />
+            <Route path="/contact-us" component={ContactUsView} />
             <Route path="/" component={HomeView} />
           </Switch>
         </Router>

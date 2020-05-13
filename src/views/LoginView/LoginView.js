@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { withRouter } from 'react-router-dom';
+import './LoginView.scss';
 
 class LoginView extends React.Component {
 
@@ -21,13 +22,13 @@ class LoginView extends React.Component {
         }
 
         axios.post(url + 'login', form, options)
-        .then(response => {
-            localStorage.setItem('token', response.data.accessToken);
-            this.props.history.push('/');
-        })
-        .catch(error => {
-            console.log(error)
-        })
+            .then(response => {
+                localStorage.setItem('token', response.data.accessToken);
+                this.props.history.push('/');
+            })
+            .catch(error => {
+                console.log(error)
+            })
 
     }
 
@@ -35,13 +36,17 @@ class LoginView extends React.Component {
     render() {
         return (
             <div className="container">
-                <h1>Login</h1>
+                <h3>Login</h3>
                 <form onSubmit={this.login}>
-                    <label>UserName:</label>
-                    <input type="text" name="username" required />
-                    <label>Password:</label>
+                    <label>Login</label>
+                    <br />
+                    <input type="text" name="login" required />
+                    <br />
+                    <label>Password</label>
+                    <br />
                     <input type="password" name="password" required />
-                    <input type="submit" value="Login" />
+                    <br />
+                    <input type="submit" value="Login" className="login-button" />
                 </form>
             </div>
         )
