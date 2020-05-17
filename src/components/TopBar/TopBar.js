@@ -41,6 +41,7 @@ class TopBar extends React.Component {
                             <Link to='/' className="nav-link active links"><img src={home} className="home-img" /></Link>
                             <Link to='/contact-us' className="nav-link active links">Contact us</Link>
                             <Link to="/add-hotel" className="nav-link active links">Add hotels</Link>
+                            <Link to="/my-hotels" className="nav-link active links">My hotels</Link>
                             <input type="button"
                                 value="Logout"
                                 onClick={this.handleLogoutClick}

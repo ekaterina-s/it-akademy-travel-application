@@ -11,6 +11,7 @@ import axios from 'axios';
 import { url } from './utils/api';
 import PrivateRoute from './PrivateRoute';
 import ContactUsView from './views/ContactUsView/ContactUsView';
+import UserHotelsView from './views/UserHotelsView/UserHotelsView';
 
 class App extends React.Component {
   state = {
@@ -19,7 +20,7 @@ class App extends React.Component {
   };
 
   verifyUserStatus = () => {
-const token = localStorage.getItem('token');
+    const token = localStorage.getItem('token');
 
     const options = {
       headers: {
@@ -27,17 +28,19 @@ const token = localStorage.getItem('token');
       },
     };
 
-    if(token && token.length > 0) {
+    if (token && token.length > 0) {
       axios.get(`${url}/users/me`, options)
-      .then(response => {
-        this.setState({
-          user: response.data,
-          isAuthorized: true
+        .then(response => {
+          this.setState({
+            user: response.data,
+            isAuthorized: true
+          })
+          console.log(this.state.user);
+          console.log(this.state.isAuthorized);
         })
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+        .catch((error) => {
+          console.log(error);
+        });
     } else {
       this.setState({
         user: null,
@@ -54,21 +57,26 @@ const token = localStorage.getItem('token');
     return (
       <div className="App">
         <Router>
-        <TopBar 
-        isAuthorized={this.state.isAuthorized} 
-        user={this.state.user}
-          verifyUserStatus={this.verifyUserStatus}
-        />
-          <Switch>
-            <PrivateRoute 
-            path="/add-hotel" 
-            component={AddHotelView} 
+          <TopBar
             isAuthorized={this.state.isAuthorized}
+            user={this.state.user}
+            verifyUserStatus={this.verifyUserStatus}
+          />
+          <Switch>
+            <PrivateRoute
+              path="/add-hotel"
+              component={AddHotelView}
+              isAuthorized={this.state.isAuthorized}
             />
             <Route path="/login" component={LoginView} />
             <Route path="/register" component={RegisterView} />
-            <Route path="/hotel/:id" component={AddHotelView} />
+            <Route path="/hotel/:id" component={HotelView} />
             <Route path="/contact-us" component={ContactUsView} />
+            <PrivateRoute
+              path="/my-hotels"
+              component={UserHotelsView}
+              isAuthorized={this.state.isAuthorized}
+            />
             <Route path="/" component={HomeView} />
           </Switch>
         </Router>

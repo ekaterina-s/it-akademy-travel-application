@@ -19,13 +19,13 @@ class AddHotelView extends React.Component {
         const options = {
             headers: {
                 'Content-type': 'multipart/form-data',
-                'x-access-token' : token
+                'x-access-token': token
             },
         };
 
         axios
-        .post(url + '/hotels', form, options)
-        .then(response => {
+            .post(url + 'hotels', form, options)
+            .then(response => {
                 console.log(response);
             })
             .catch((error) => {

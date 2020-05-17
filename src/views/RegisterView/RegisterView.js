@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+
 import './RegisterView.scss';
 
 class RegisterView extends React.Component {
@@ -22,7 +23,7 @@ class RegisterView extends React.Component {
 
         axios.post(url + 'register', form, options)
             .then(response => {
-                console.log(response)
+                this.props.history.push("/login");
             })
             .catch(error => {
                 console.log(error)
@@ -37,7 +38,7 @@ class RegisterView extends React.Component {
                 <form onSubmit={this.register}>
                     <label>Login</label>
                     <br />
-                    <input type="text" name="login" required />
+                    <input type="text" name="username" required />
                     <br />
                     <label>First name</label>
                     <br />
@@ -57,7 +58,7 @@ class RegisterView extends React.Component {
                     <br />
                     <label>Repeat password</label>
                     <br />
-                    <input type="password" name="password" required />
+                    <input type="password" name="repeat password" required />
                     <br />
                     <input type="submit" value="Register" className="register-button" />
                 </form>

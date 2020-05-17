@@ -22,11 +22,11 @@ class LoginView extends React.Component {
         }
 
         axios.post(url + 'login', form, options)
-            .then(response => {
+            .then((response) => {
                 localStorage.setItem('token', response.data.accessToken);
                 this.props.history.push('/');
             })
-            .catch(error => {
+            .catch((error) => {
                 console.log(error)
             })
 
@@ -40,7 +40,7 @@ class LoginView extends React.Component {
                 <form onSubmit={this.login}>
                     <label>Login</label>
                     <br />
-                    <input type="text" name="login" required />
+                    <input type="text" name="username" required />
                     <br />
                     <label>Password</label>
                     <br />

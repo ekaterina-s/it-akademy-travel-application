@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route, Redirect } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 
 const PrivateRoute = (props) => {
     const { component: Component, isAuthorized, ...rest } = props;
@@ -10,8 +10,8 @@ const PrivateRoute = (props) => {
             return isAuthorized ? (
                 <Component {...props} />
             ) : (
-                <Redirect to="/" />
-            )
+                    <Redirect to="/login" />
+                )
         }} />
     );
 }

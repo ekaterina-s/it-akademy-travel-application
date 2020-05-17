@@ -7,7 +7,7 @@ import Sidebar from "../../components/Sidebar/Sidebar";
 import rates from "../../utils/rates";
 import axios from 'axios';
 import { connect } from 'react-redux';
-import { saveHotels } from '../../store/actions/hotels-action';
+import { getHotels } from '../../store/actions/hotels-action';
 
 class HomeView extends React.Component {
   state = {
@@ -87,13 +87,13 @@ class HomeView extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('https://nodejs-mysql-it-academy.herokuapp.com/hotels').then((res) => {
-      this.setState({
-        dataFromApi: res.data,
-      });
-    this.switchSort();
-    });
-
+    // axios.get('https://nodejs-mysql-it-academy.herokuapp.com/hotels').then((res) => {
+    //   this.setState({
+    //     dataFromApi: res.data,
+    //   });
+    // this.switchSort();
+    // });
+    this.props.getHotels();
     axios.get('https://nodejs-mysql-it-academy.herokuapp.com/hotels/recommended').then((res) => {
       this.setState({
         recommendedHotels: res.data
@@ -127,7 +127,7 @@ class HomeView extends React.Component {
             sidebar_data={this.state.recommendedHotels}
           />
           <MainContainer
-            data={this.state.hotels}
+            data={this.props.hotels}
             switchSort={this.switchSort}
             sort={this.state.sort}
             symbol={this.state.symbol}
@@ -139,11 +139,11 @@ class HomeView extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-hotels: state.hotels
+  hotels: state.hotels
 })
 
-const mapDispatchToProps = (dipatch) => ({
-  saveHotelsToRedux: (hotels) => dispatchEvent(saveHotels(hotels))
+const mapDispatchToProps = (dispatch) => ({
+  getHotels: () => dispatch(getHotels()),
 })
 
-export default connect(mapStateToProps)(HomeView);
+export default connect(mapStateToProps, mapDispatchToProps)(HomeView);
