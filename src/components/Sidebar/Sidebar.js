@@ -1,7 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import React from 'react';
 import './Sidebar.scss';
-import sidebar_data from '../../utils/sidebar_data';
 import Modal from '../Modal/Modal';
 import preloader from "../../icons/preloader.svg";
 
@@ -25,7 +24,7 @@ class Sidebar extends React.Component {
           {this.props.sidebar_data.map((element) => {
             return (
               <div className="hotel_container" >
-                <img src={element.image} />
+                <img src={element.image} alt = "hotel_image"/>
                 <div className="hotel_container__info_container">
                   <p className="hotel_title">{element.title}</p>
                   <p className="location">{element.location}</p>
@@ -52,7 +51,7 @@ class Sidebar extends React.Component {
           }
         </div>
         : <div className="d-flex justify-content-center mx-auto align-items-start">
-          <img src={preloader} />
+          <img src={preloader} alt="preloader"/>
         </div>
     );
   }

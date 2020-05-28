@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios';
 import { withRouter } from 'react-router-dom';
-import { url } from '../../utils/api'
 
 class AddHotelView extends React.Component {
 

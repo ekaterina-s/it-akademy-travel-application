@@ -26,7 +26,7 @@ class Header extends React.Component {
         return (
             <div className="header">
                 <div>
-                    <img src={search} />
+                    <img src={search} alt="search"/>
                     <input type="text"
                         className="search-field-location"
                         placeholder="Enter location"
@@ -34,7 +34,7 @@ class Header extends React.Component {
                 </div>
                 <div className="price-currency-change">
                     <div className="price-bar">
-                        &#128176;
+                        <span role="img" aria-label="emoji">&#128176;</span>
                 <input type="text"
                             className="search-field-price"
                             placeholder="Min. price"

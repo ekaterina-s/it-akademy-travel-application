@@ -12,6 +12,11 @@ const hotelsReducer = (state = initialState, action) => {
                 return { ...state, hotels: action.payload };
             case 'ADD_TO_FAVOURITES':
                 return { ...state, favourites: [...state.favourites, action.payload] };
+            case 'REMOVE_FROM_FAVOURITES':
+                return { ...state, 
+                    favourites: [
+                        ...state.favourites.filter(hotel => hotel.id !== action.payload)
+                    ]};
             default:
                 return state;
     }

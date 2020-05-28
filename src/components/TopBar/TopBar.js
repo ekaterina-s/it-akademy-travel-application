@@ -19,12 +19,15 @@ class TopBar extends React.Component {
         const { isAuthorized, user } = this.props;
         return (
             <nav className="d-flex nav topbar">
-                <div className="logotype-img"><img src={logotype} /></div>
+                <div className="logotype-img"><img src={logotype} alt="logo"/></div>
 
                 {
                     !isAuthorized && (
                         <div className="topbar-buttons">
-                            <Link to='/' className="nav-link active links"><img src={home} className="home-img" /></Link>
+                            <Link to='/' className="nav-link active links"><img src={home} alt="home" className="home-img" /></Link>
+                            <Link to='/favourite' className="nav-link active">
+                            Favourite Hotels List
+                            </Link>
                             <Link to='/contact-us' className="nav-link active links">Contact us</Link>
                             <Link to="/register" className="nav-link active links">Register</Link>
                             <Link to="/login" className="nav-link active links"
@@ -38,7 +41,7 @@ class TopBar extends React.Component {
                 {
                     isAuthorized && (
                         <div className="topbar-buttons">
-                            <Link to='/' className="nav-link active links"><img src={home} className="home-img" /></Link>
+                            <Link to='/' className="nav-link active links"><img src={home} alt="home" className="home-img" /></Link>
                             <Link to='/contact-us' className="nav-link active links">Contact us</Link>
                             <Link to="/add-hotel" className="nav-link active links">Add hotels</Link>
                             <Link to="/my-hotels" className="nav-link active links">My hotels</Link>

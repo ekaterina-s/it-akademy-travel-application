@@ -7,7 +7,7 @@ import LikeButton from '../LikeButton/LikeButton';
 const Hotel = (element, props) => {
   return (
     <div className="hotel" >
-      <img src={element.image} />
+      <img src={element.image} alt="hotel_image"/>
       <div className="hotel-info" key={element.id}>
         <Link to={"hotel/" + element.id}>
           <div className="hotel-name">{element.title}</div>

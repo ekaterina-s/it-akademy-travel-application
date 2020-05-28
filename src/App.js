@@ -12,6 +12,7 @@ import { url } from './utils/api';
 import PrivateRoute from './PrivateRoute';
 import ContactUsView from './views/ContactUsView/ContactUsView';
 import UserHotelsView from './views/UserHotelsView/UserHotelsView';
+import FavouriteView from './views/FavouriteView/FavouriteView';
 
 class App extends React.Component {
   state = {
@@ -77,6 +78,7 @@ class App extends React.Component {
               component={UserHotelsView}
               isAuthorized={this.state.isAuthorized}
             />
+            <Route path="/favourite" component={FavouriteView} />
             <Route path="/" component={HomeView} />
           </Switch>
         </Router>

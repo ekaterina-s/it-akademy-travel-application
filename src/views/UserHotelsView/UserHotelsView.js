@@ -2,7 +2,6 @@ import React from "react";
 import "../HomeView/HomeView.scss";
 import MainContainer from "../../components/MainContainer/MainContainer";
 import Header from "../../components/Header/Header";
-import sidebar_data from "../../utils/sidebar_data";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import rates from "../../utils/rates";
 import axios from 'axios';
@@ -36,56 +35,6 @@ class HomeView extends React.Component {
         })
     }
 
-    filterHotels = name => {
-        const filteredHotels = this.state.dataFromApi.filter(hotel => {
-            return hotel.location.toLowerCase().includes(name.toLowerCase());
-        });
-
-        this.setState({
-
-            hotels: name.length > 0 ? filteredHotels : this.state.dataFromApi,
-        });
-    };
-
-    filterHotelsPrice = price => {
-        const filteredHotels = this.state.dataFromApi.filter(hotel => {
-            return hotel.price >= parseInt(price);
-        })
-        this.setState({
-            hotels: price.length > 0 ? filteredHotels : this.state.dataFromApi
-        });
-    }
-
-    sortHotels = () => {
-        let aMoreB;
-        let bMoreA;
-
-        if (this.state.sort) {
-            aMoreB = 1;
-            bMoreA = -1;
-        } else {
-            aMoreB = -1;
-            bMoreA = 1;
-        }
-
-        return this.state.dataFromApi.sort((a, b) => {
-            if (a.title > b.title) {
-                return aMoreB;
-            } else if (b.title > a.title) {
-                return bMoreA;
-            } else {
-                return 0;
-            }
-        })
-    }
-
-    switchSort = () => {
-        this.setState({
-            sort: !this.state.sort,
-            hotels: this.sortHotels()
-        });
-    }
-
     componentDidMount() {
 
         const token = localStorage.getItem('token');
@@ -99,8 +48,8 @@ class HomeView extends React.Component {
         axios.get('https://nodejs-mysql-it-academy.herokuapp.com/my-hotels', options).then((res) => {
             this.setState({
                 dataFromApi: res.data,
+                hotels: res.data
             });
-            this.switchSort();
         });
         this.props.getHotels();
         axios.get('https://nodejs-mysql-it-academy.herokuapp.com/hotels/recommended').then((res) => {
@@ -127,8 +76,6 @@ class HomeView extends React.Component {
         return (
             <div className="AppH">
                 <Header
-                    filterHotels={this.filterHotels}
-                    filterHotelsPrice={this.filterHotelsPrice}
                     convertPrice={this.convertPrice}
                 />
                 <div className="MainSectionH">
@@ -137,7 +84,6 @@ class HomeView extends React.Component {
                     />
                     <MainContainer
                         data={this.state.hotels}
-                        switchSort={this.switchSort}
                         sort={this.state.sort}
                         symbol={this.state.symbol}
                     />

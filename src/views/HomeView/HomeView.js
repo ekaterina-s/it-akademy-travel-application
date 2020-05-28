@@ -2,7 +2,6 @@ import React from "react";
 import "./HomeView.scss";
 import MainContainer from "../../components/MainContainer/MainContainer";
 import Header from "../../components/Header/Header";
-import sidebar_data from "../../utils/sidebar_data";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import rates from "../../utils/rates";
 import axios from 'axios';
