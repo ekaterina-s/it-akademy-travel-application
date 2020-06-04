@@ -3,6 +3,7 @@ import React from 'react';
 import './Sidebar.scss';
 import Modal from '../Modal/Modal';
 import preloader from "../../icons/preloader.svg";
+import { connect } from 'react-redux';
 
 class Sidebar extends React.Component {
 
@@ -24,7 +25,7 @@ class Sidebar extends React.Component {
           {this.props.sidebar_data.map((element) => {
             return (
               <div className="hotel_container" >
-                <img src={element.image} alt = "hotel_image"/>
+                <img src={element.image} alt="hotel_image" />
                 <div className="hotel_container__info_container">
                   <p className="hotel_title">{element.title}</p>
                   <p className="location">{element.location}</p>
@@ -51,10 +52,16 @@ class Sidebar extends React.Component {
           }
         </div>
         : <div className="d-flex justify-content-center mx-auto align-items-start">
-          <img src={preloader} alt="preloader"/>
+          <img src={preloader} alt="preloader" />
         </div>
     );
   }
 }
 
-export default Sidebar;
+const mapStateToProps = (state) => {
+  return {
+    sidebar_data: state.recommendedHotels
+  }
+}
+
+export default connect(mapStateToProps)(Sidebar);

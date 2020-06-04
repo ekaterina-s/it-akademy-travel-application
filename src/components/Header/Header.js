@@ -7,6 +7,8 @@ import { saveText } from '../../store/actions/hotels-action';
 class Header extends React.Component {
 
     state = {};
+    inputRef = React.createRef();
+
     handleCurrency = event => {
         this.props.convertPrice(event.target.value);
     };
@@ -22,20 +24,26 @@ class Header extends React.Component {
         this.props.dispatch(saveText('New text is here!'));
     };
 
+    componentDidMount() {
+        this.inputRef.current.focus();
+    }
+
     render() {
         return (
             <div className="header">
                 <div>
-                    <img src={search} alt="search"/>
+                    <img src={search} alt="search" />
                     <input type="text"
                         className="search-field-location"
                         placeholder="Enter location"
-                        onChange={this.handleSearch} />
+                        onChange={this.handleSearch}
+                        ref={this.inputRef}
+                    />
                 </div>
                 <div className="price-currency-change">
                     <div className="price-bar">
                         <span role="img" aria-label="emoji">&#128176;</span>
-                <input type="text"
+                        <input type="text"
                             className="search-field-price"
                             placeholder="Min. price"
                             onChange={this.handleFilterPrice} />

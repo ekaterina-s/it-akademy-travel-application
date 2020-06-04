@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { url, options } from '../../utils/api';
 
 export const saveText = (text) => {
     return {
@@ -16,14 +17,17 @@ export const saveHotels = (hotels) => {
 
 export const getHotels = () => {
     return (dispatch) => {
-        dispatch({ type: 'GET_HOTELS' })
+        dispatch({ type: 'GET_HOTELS' });
 
         axios
-            .get('https://nodejs-mysql-it-academy.herokuapp.com/hotels')
+            .get(`${url}/hotels`)
             .then((res) => {
                 dispatch({
                     type: 'GET_HOTELS_SUCCESS',
-                    payload: res.data
+                    payload: res.data,
+                    loadRecommended: res.data.filter((hotel) => {
+                        return hotel.recommended;
+                    })
                 })
             }).catch(() => {
                 dispatch({
@@ -43,6 +47,25 @@ export const addToFavourites = (hotel) => {
 export const removeFromFavourites = (hotelId) => {
     return {
         type: 'REMOVE_FROM_FAVOURITES',
-        payload: hotelId
-    }
-}
+        payload: hotelId,
+    };
+};
+
+export const getUserHotels = () => {
+    return (dispatch) => {
+        dispatch({ type: 'GET_USER_HOTELS' });
+
+        axios.get('https://nodejs-mysql-it-academy.herokuapp.com/my-hotels', options)
+            .then((res) => {
+                dispatch({
+                    type: 'GET_USER_HOTELS_SUCCESS',
+                    payload: res.data,
+                });
+            })
+            .catch(() => {
+                dispatch({
+                    type: 'GET_USER_HOTELS_ERROR',
+                });
+            });
+    };
+};

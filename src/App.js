@@ -13,11 +13,15 @@ import PrivateRoute from './PrivateRoute';
 import ContactUsView from './views/ContactUsView/ContactUsView';
 import UserHotelsView from './views/UserHotelsView/UserHotelsView';
 import FavouriteView from './views/FavouriteView/FavouriteView';
+import Notification from './components/Notification/Notification';
+import { getHotels } from './store/actions/hotels-action';
+import { connect } from 'react-redux';
 
 class App extends React.Component {
   state = {
     user: null,
     isAuthorized: false,
+    hotels: []
   };
 
   verifyUserStatus = () => {
@@ -52,12 +56,14 @@ class App extends React.Component {
 
   componentDidMount() {
     this.verifyUserStatus();
+    this.props.getHotels();
   }
 
   render() {
     return (
       <div className="App">
         <Router>
+          <Notification />
           <TopBar
             isAuthorized={this.state.isAuthorized}
             user={this.state.user}
@@ -87,4 +93,12 @@ class App extends React.Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state) => ({
+  hotels: state.hotels
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  getHotels: (hotels) => dispatch(getHotels())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

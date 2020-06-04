@@ -35,29 +35,29 @@ class HomeView extends React.Component {
         })
     }
 
-    componentDidMount() {
+    // componentDidMount() {
 
-        const token = localStorage.getItem('token');
+    //     const token = localStorage.getItem('token');
 
-        const options = {
-            headers: {
-                'x-access-token': token,
-            },
-        };
+    //     const options = {
+    //         headers: {
+    //             'x-access-token': token,
+    //         },
+    //     };
 
-        axios.get('https://nodejs-mysql-it-academy.herokuapp.com/my-hotels', options).then((res) => {
-            this.setState({
-                dataFromApi: res.data,
-                hotels: res.data
-            });
-        });
-        this.props.getHotels();
-        axios.get('https://nodejs-mysql-it-academy.herokuapp.com/hotels/recommended').then((res) => {
-            this.setState({
-                recommendedHotels: res.data
-            })
-        })
-    }
+    //     axios.get('https://nodejs-mysql-it-academy.herokuapp.com/my-hotels', options).then((res) => {
+    //         this.setState({
+    //             dataFromApi: res.data,
+    //             hotels: res.data
+    //         });
+    //     });
+    //     this.props.getHotels();
+    //     axios.get('https://nodejs-mysql-it-academy.herokuapp.com/hotels/recommended').then((res) => {
+    //         this.setState({
+    //             recommendedHotels: res.data
+    //         })
+    //     })
+    // }
 
     componentDidUpdate(prevProps, prevState) {
         if (prevState.currency !== this.state.currency) {
